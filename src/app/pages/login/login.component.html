@@ -5,7 +5,8 @@
     <input [(ngModel)]="loginForm.email" type="email" name ="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
     <label for="inputPassword" class="sr-only">Password</label>
     <input [(ngModel)]="loginForm.password" type="password" name ="password" id="inputPassword" class="form-control" placeholder="Password" required>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    <button [disabled]="!loginForm.email || !loginForm.password" [hidden]="isLoading" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    <button [disabled]="isLoading" [hidden]="!isLoading" class="btn btn-lg btn-primary btn-block" type="submit">Loading...</button>
     <p class="mt-5 mb-3 text-muted">&copy; 2019 Omnivista UI Team</p>
   </form>
 </div>
